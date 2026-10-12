@@ -1,0 +1,36 @@
+<!-- views/dosen/detail.ejs -->
+<%- include('../partials/header', { title }) %>
+
+<section class="rounded-3xl bg-gradient-to-br from-wd-mid to-wd-deep p-6 md:p-10">
+  <a href="/dosen" class="text-[11px] text-white/70 hover:text-white">&larr; Kembali ke daftar dosen</a>
+  <div class="mt-6 flex flex-col md:flex-row gap-6 md:items-center">
+    <div class="w-24 h-24 rounded-full bg-wd-accent/30 flex items-center justify-center text-4xl font-semibold">
+      <%= dosen.nama.replace(/^(Dr\.|Prof\.)\s*/, '').charAt(0) %>
+    </div>
+    <div>
+      <h1 class="text-3xl md:text-4xl font-serif"><%= dosen.nama %></h1>
+      <p class="mt-1 text-xs text-white/70"><%= dosen.jabatan %></p>
+    </div>
+  </div>
+
+  <dl class="mt-8 grid md:grid-cols-2 gap-4 text-sm">
+    <div class="rounded-2xl bg-black/20 p-4">
+      <dt class="text-[10px] uppercase tracking-widest text-white/60">NIDN</dt>
+      <dd class="mt-1 font-medium"><%= dosen.nidn %></dd>
+    </div>
+    <div class="rounded-2xl bg-black/20 p-4">
+      <dt class="text-[10px] uppercase tracking-widest text-white/60">Email</dt>
+      <dd class="mt-1 font-medium"><%= dosen.email %></dd>
+    </div>
+    <div class="rounded-2xl bg-black/20 p-4 md:col-span-2">
+      <dt class="text-[10px] uppercase tracking-widest text-white/60">Bidang Keahlian</dt>
+      <dd class="mt-2 flex flex-wrap gap-2">
+        <% dosen.keahlian.forEach(k => { %>
+          <a href="/dosen?keahlian=<%= encodeURIComponent(k) %>" class="text-[11px] border border-white/50 rounded-full px-3 py-0.5 hover:bg-white hover:text-wd-deep transition"><%= k %></a>
+        <% }); %>
+      </dd>
+    </div>
+  </dl>
+</section>
+
+<%- include('../partials/footer') %>

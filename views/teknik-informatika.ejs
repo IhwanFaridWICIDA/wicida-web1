@@ -1,0 +1,189 @@
+<!-- views/teknik-informatika.ejs -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-[#05010f] text-white font-sans antialiased">
+
+  <!-- NAVBAR -->
+  <div class="px-3 pt-3">
+    <nav class="flex items-center justify-between rounded-2xl bg-[#1b2a6b] px-5 md:px-8 py-3">
+      <a href="/profil" class="flex items-center gap-3">
+        <img src="./images/W.jpg" alt="Logo STMIK Wicida" class="w-11 h-11 rounded-full">
+        <span class="leading-none">
+          <span class="block font-serif text-xl font-bold">STMIK</span>
+          <span class="block text-[8px] font-bold tracking-tight">WIDYA CIPTA DHARMA</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-12 text-[11px] tracking-widest">
+        <% navLinks.forEach(l => { %><a href="<%= l.href %>" class="hover:text-cyan-300"><%= l.label %></a><% }); %>
+      </div>
+      <a href="#" class="text-[11px] border border-blue-400 rounded-full px-4 py-1.5 hover:bg-blue-500/30 transition">LOG IN ↗</a>
+    </nav>
+  </div>
+
+  <main class="max-w-7xl mx-auto">
+
+    <!-- HERO -->
+    <header class="grid md:grid-cols-2 gap-8 items-center px-6 md:px-10 py-14">
+      <div>
+        <h1 class="text-5xl md:text-6xl font-medium leading-tight">
+          Teknik <span class="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Informatika</span>
+        </h1>
+        <div class="mt-6 text-lg leading-snug">
+          <p class="underline underline-offset-4">STMIK Widya Cipta Dharma</p>
+          <p>Sekolah Tinggi Manajemen Informatika dan Komputer</p>
+          <p class="italic text-white/80">Kampus Teknologi dengan Fokus pada Inovasi Digital</p>
+        </div>
+        <a href="/pmb#form" class="inline-block mt-10 rounded-xl border border-blue-500 bg-[#1b2a6b] px-6 py-3 text-sm tracking-wider shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:bg-blue-800 transition">
+          DAFTAR ONLINE
+        </a>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <img src="./images/robot.png" alt="Ilustrasi robot AI" class="w-full max-w-md rounded-xl object-cover">
+      </div>
+    </header>
+
+    <!-- GARIS PEMISAH PUTUS-PUTUS -->
+    <div class="border-t-2 border-dashed border-yellow-500/70 mx-0"></div>
+
+    <!-- SELAMAT DATANG -->
+    <section class="grid md:grid-cols-2 gap-10 px-6 md:px-16 py-12 items-center">
+      <div class="flex flex-col items-center text-center">
+        <img src="./images/Galang.png" alt="<%= kaprodi.name %>" class="w-64 h-80 object-cover rounded-t-3xl">
+        <p class="mt-3 font-semibold text-cyan-400"><%= kaprodi.name %></p>
+        <p class="text-xs italic"><%= kaprodi.role %></p>
+      </div>
+      <div>
+        <h2 class="text-3xl md:text-4xl font-medium">Selamat datang di <span class="text-sky-400">Teknik Informatika</span></h2>
+        <p class="mt-6 text-sm leading-relaxed text-white/90 max-w-lg"><%= welcome %></p>
+      </div>
+    </section>
+
+    <!-- GALERI FOTO -->
+    <section class="mx-3 rounded-3xl bg-[#243b86] px-6 md:px-10 py-10 overflow-hidden">
+      <p class="text-xs text-white/80">KENANGAN</p>
+      <h2 class="text-4xl font-medium">Galeri Foto</h2>
+      <div class="mt-8 flex gap-4 overflow-x-auto pb-2">
+        <% gallery.forEach(g => { %>
+          <img src="<%= g.img %>" alt="<%= g.alt %>" class="h-40 md:h-44 w-[85%] md:w-[32%] flex-none rounded-2xl object-cover">
+        <% }); %>
+      </div>
+    </section>
+
+    <!-- VISI, MISI, TUJUAN -->
+    <section class="mx-3 mt-5 rounded-3xl bg-[#0a0a5a] px-6 md:px-10 py-12">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="font-serif text-4xl tracking-wide">VISI</h2>
+        <p class="mt-3 text-lg leading-snug">“<%= visi %>”</p>
+      </div>
+      <hr class="my-10 border-white/20">
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="text-center">
+          <h2 class="font-serif text-4xl tracking-wide">MISI</h2>
+          <ol class="mt-5 space-y-3 text-xs leading-snug text-white/90">
+            <% misi.forEach((m, i) => { %><li><%= i + 1 %>. <%= m %></li><% }); %>
+          </ol>
+        </div>
+        <div class="text-center">
+          <h2 class="font-serif text-4xl tracking-wide">TUJUAN</h2>
+          <ol class="mt-5 space-y-3 text-xs leading-snug text-white/90">
+            <% tujuan.forEach((t, i) => { %><li><%= i + 1 %>. <%= t %></li><% }); %>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM PENDAFTARAN -->
+    <section id="form" class="mx-3 mt-5 rounded-3xl bg-[#dcdcff] text-[#1b1b4b] px-6 md:px-12 py-10 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-[10px]">DAFTAR SEKARANG!</p>
+        <h2 class="text-4xl font-medium">Form Pendaftaran</h2>
+        <% if (sent) { %>
+          <div class="mt-4 bg-green-100 text-green-800 px-4 py-2 rounded-xl text-xs">Pendaftaran berhasil dikirim. Terima kasih!</div>
+        <% } %>
+        <form action="/pmb" method="POST" class="mt-8 space-y-3">
+          <input type="hidden" name="prodi" value="Teknik Informatika">
+          <div class="flex items-center gap-4">
+            <label for="nama" class="w-20 text-sm">NAMA</label>
+            <input id="nama" name="nama" type="text" required class="flex-1 rounded-full border border-purple-400 bg-[#efe8ff] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          </div>
+          <div class="flex items-center gap-4">
+            <label for="email" class="w-20 text-sm">EMAIL</label>
+            <input id="email" name="email" type="email" required class="flex-1 rounded-full border border-purple-400 bg-[#efe8ff] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          </div>
+          <div class="flex items-center gap-4">
+            <label for="hp" class="w-20 text-sm">NO. HP</label>
+            <input id="hp" name="hp" type="tel" required class="flex-1 rounded-full border border-purple-400 bg-[#efe8ff] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          </div>
+          <button type="submit" class="mt-6 ml-auto block rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold px-6 py-2.5 transition">KIRIM FORM →</button>
+        </form>
+      </div>
+      <div class="flex justify-center">
+        <img src="./images/PMB.png" alt="Poster PMB" class="rounded-3xl w-full max-w-sm object-cover">
+      </div>
+    </section>
+
+    <!-- CALLOUT -->
+    <section class="relative mx-3 mt-5 overflow-hidden rounded-3xl bg-[#1e3a5f] min-h-[460px] flex flex-col">
+      <img src="./images/stmik.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40">
+      <div class="relative z-10 flex items-center justify-between px-6 md:px-8 py-5 text-[11px]">
+        <span class="font-serif italic underline text-base">by Angel Wong</span>
+        <span class="flex gap-5">
+          <a href="#">INSTAGRAM ↗</a><a href="#">FACEBOOK ↗</a><a href="#">YOUTUBE ↗</a>
+        </span>
+      </div>
+      <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pb-12">
+        <h2 class="text-5xl md:text-7xl font-medium leading-tight">
+          Ingin Kunjungi Profil<br>
+          <span class="font-serif italic text-sky-400">STMIK WICIDA?</span>
+        </h2>
+        <a href="/profil" class="mt-8 rounded-full border border-blue-400 bg-blue-600/60 px-5 py-2 text-xs tracking-wider hover:bg-blue-500 transition">WICIDA.AC.ID ↗</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="kontak" class="max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-6">
+    <div class="grid md:grid-cols-3 gap-8 items-center">
+      <div class="flex items-center gap-3">
+        <img src="./images/W.jpg" alt="Logo" class="w-16 h-16 rounded-full">
+        <span class="leading-none">
+          <span class="block font-serif text-3xl font-bold">STMIK</span>
+          <span class="block text-[10px] font-bold">WIDYA CIPTA DHARMA</span>
+        </span>
+      </div>
+      <p class="text-[11px] uppercase leading-snug"><span class="mr-3 text-xl align-middle">📍</span><%= footer.address %></p>
+      <p class="text-sm"><span class="mr-3 text-xl align-middle">📞</span><%= footer.phone %></p>
+    </div>
+    <hr class="my-8 border-white/30">
+    <div class="flex justify-center gap-6 text-xl">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="YouTube">▶</a>
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="WhatsApp">✆</a>
+      <a href="#" aria-label="Email">✉</a>
+    </div>
+    <p class="mt-3 text-center text-[10px] text-white/70">© COPYRIGHT. ALL RIGHTS RESERVED</p>
+  </footer>
+
+</body>
+</html>

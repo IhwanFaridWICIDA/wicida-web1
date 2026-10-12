@@ -1,0 +1,18 @@
+<!-- views/admin/dashboard.ejs -->
+<%- include('../partials/header', { title }) %>
+<%- include('../partials/admin-nav', { aktif: 'dashboard' }) %>
+
+<section class="rounded-3xl bg-gradient-to-br from-wd-mid to-wd-deep p-6 md:p-10">
+  <h1 class="text-3xl md:text-4xl font-serif">Dashboard Admin</h1>
+  <p class="mt-2 text-xs text-white/70">Ringkasan data website program studi.</p>
+  <div class="mt-8 grid sm:grid-cols-3 gap-4">
+    <% stats.forEach(s => { %>
+      <div class="rounded-2xl bg-black/20 p-5">
+        <p class="text-[10px] uppercase tracking-widest text-white/60"><%= s.label %></p>
+        <p class="mt-2 text-4xl font-semibold"><%= s.value %></p>
+      </div>
+    <% }); %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

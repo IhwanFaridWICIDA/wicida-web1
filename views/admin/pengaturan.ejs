@@ -1,0 +1,18 @@
+<!-- views/admin/pengaturan.ejs -->
+<%- include('../partials/header', { title }) %>
+<%- include('../partials/admin-nav', { aktif: 'pengaturan' }) %>
+
+<section class="rounded-3xl bg-gradient-to-br from-wd-mid to-wd-deep p-6 md:p-10">
+  <h1 class="text-3xl md:text-4xl font-serif">Pengaturan</h1>
+  <p class="mt-2 text-xs text-white/70">Konfigurasi dasar website.</p>
+  <dl class="mt-8 divide-y divide-white/10 text-sm">
+    <% pengaturan.forEach(p => { %>
+      <div class="flex justify-between gap-6 py-3">
+        <dt class="text-white/70"><%= p.label %></dt>
+        <dd class="font-medium text-right"><%= p.value %></dd>
+      </div>
+    <% }); %>
+  </dl>
+</section>
+
+<%- include('../partials/footer') %>

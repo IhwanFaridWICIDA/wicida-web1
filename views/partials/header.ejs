@@ -1,0 +1,31 @@
+<!-- views/partials/header.ejs : dipakai semua halaman baru -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Montserrat', 'sans-serif'], serif: ['"Instrument Serif"', 'serif'] },
+          colors: { wd: { bg: '#0b0418', deep: '#1b0a3c', mid: '#2e1065', accent: '#9b30ff' } },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-wd-bg text-white font-sans antialiased">
+  <div class="max-w-6xl mx-auto p-4 md:p-6 space-y-5">
+    <nav class="flex items-center justify-between rounded-2xl bg-gradient-to-br from-wd-mid to-wd-deep px-6 py-4">
+      <a href="/profil" class="flex items-center gap-2">
+        <img src="/images/W.jpg" alt="Logo STMIK Wicida" class="w-10 h-10 rounded-full">
+        <span class="leading-tight text-xs font-bold">STMIK<br><span class="font-normal text-[10px] text-white/70">WICIDA</span></span>
+      </a>
+      <div class="flex items-center gap-5 md:gap-8 text-xs text-white/80">
+        <% navLinks.forEach(l => { %><a href="<%= l.href %>" class="hover:text-white"><%= l.label %></a><% }); %>
+      </div>
+    </nav>

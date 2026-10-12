@@ -1,0 +1,20 @@
+{
+  "name": "wicida-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "routes": "node scripts/route-list.js",
+    "cek-env": "node scripts/cek-environment.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^7.0.1",
+    "express": "^5.3.0"
+  }
+}
