@@ -30,6 +30,7 @@ router.get(['/', '/profil'], (req, res) => {
     prodi: [
       {
         name: 'Teknik Informatika',
+        url: '/teknik-informatika',
         tags: ['Pemrograman', 'Jaringan', 'Kecerdasan Buatan'],
         desc: 'Mempelajari pengembangan perangkat lunak, jaringan komputer, basis data, dan teknologi cerdas untuk menjawab kebutuhan industri digital.',
         theme: {
@@ -44,6 +45,7 @@ router.get(['/', '/profil'], (req, res) => {
       },
       {
         name: 'Sistem Informasi',
+        url: null,
         tags: ['Analisis Sistem', 'Basis Data', 'ERP'],
         desc: 'Mempelajari analisis, perancangan, dan pengelolaan sistem informasi untuk mendukung proses bisnis dan pengambilan keputusan organisasi.',
         theme: {
@@ -58,6 +60,7 @@ router.get(['/', '/profil'], (req, res) => {
       },
       {
         name: 'Bisnis Digital',
+        url: null,
         tags: ['E-Commerce', 'Digital Marketing', 'Startup'],
         desc: 'Mempelajari strategi bisnis berbasis teknologi, pemasaran digital, dan kewirausahaan untuk menciptakan peluang usaha di era digital.',
         theme: {
